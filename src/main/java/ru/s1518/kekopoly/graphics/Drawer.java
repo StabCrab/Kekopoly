@@ -14,30 +14,31 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class Drawer {
     private final long window;
     private Texture board;
+    private Dice first;
+    private Dice second;
 
     public Drawer() {
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
 
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-        window = glfwCreateWindow(1050, 1050, "Kekopoly", NULL, NULL);
+        //glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+        GLFWVidMode monitor = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        window = glfwCreateWindow(monitor.width() - 10, monitor.height() - 100, "Kekopoly", NULL, NULL);
 
         GLFW.glfwMakeContextCurrent(window);
 
         GL.createCapabilities();
 
         board = new Texture();
+        first = new Dice(0.275, 0.89);
+        second = new Dice(0.385, 0.89);
     }
 
     private void dices() {
-        glColor3d(0.5, 0.5, 0.5);
-        glBegin(GL_QUADS);
-        glVertex2d(0.5, -0.5);
-        glVertex2d(0.5, 0.5);
-        glVertex2d(-0.5, 0.5);
-        glVertex2d(-0.5, -0.5);
-        glEnd();
+        glColor3d(0, 0, 0);
+        first.draw();
+        second.draw();
     }
 
     private static void background() {
@@ -61,19 +62,19 @@ public class Drawer {
         board.bind();
 
         glBegin(GL_QUADS);
-        glColor4d(1, 1, 1, 1);
+        glColor3d(1, 1, 1);
 
         glTexCoord2d(1, 1);
-        glVertex2d(0.9, -0.9);
+        glVertex2d(0.2, -0.99);
 
         glTexCoord2d(0, 1);
-        glVertex2d(-0.9, -0.9);
+        glVertex2d(-0.995, -0.99);
 
         glTexCoord2d(0, 0);
-        glVertex2d(-0.9, 0.9);
+        glVertex2d(-0.995, 0.99);
 
         glTexCoord2d(1, 0);
-        glVertex2d(0.9, 0.9);
+        glVertex2d(0.2, 0.99);
 
         glEnd();
     }
