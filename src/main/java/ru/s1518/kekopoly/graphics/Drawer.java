@@ -2,9 +2,6 @@ package ru.s1518.kekopoly.graphics;
 
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
-import org.lwjgl.system.*;
-
-import java.nio.*;
 
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
@@ -29,6 +26,11 @@ public class Drawer {
         GLFW.glfwMakeContextCurrent(window);
 
         GL.createCapabilities();
+
+        glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
+            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
+                glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+        });
 
         board = new Texture();
         first = new Dice(0.275, 0.89);
@@ -84,10 +86,14 @@ public class Drawer {
 
         while ( !glfwWindowShouldClose(window) ) {
             background();
-
             dices();
-            drawBoard();
 
+//            new Quad(0.02,-0.815).draw();
+//            new Quad(0.02,-0.865).draw();
+//            new Quad(0.02,-0.915).draw();
+//            new Quad(0.02,-0.965).draw();
+
+            drawBoard();
             glfwSwapBuffers(window);
 
             glfwPollEvents();
