@@ -17,8 +17,6 @@ public class Dice {
     public Dice(double x, double y) {
         this.x = x;
         this.y = y;
-
-        this.points = DicePoints.THREE;
     }
 
     public DicePoints getPoints() {
@@ -44,6 +42,32 @@ public class Dice {
             case TWO:
                 drawCircle(x - 0.038, y + 0.08);
                 drawCircle(x + 0.038, y - 0.08);
+                break;
+            case THREE:
+                drawCircle(x, y);
+                drawCircle(x - 0.038, y + 0.08);
+                drawCircle(x + 0.038, y - 0.08);
+                break;
+            case FOUR:
+                drawCircle(x - 0.038, y + 0.08);
+                drawCircle(x + 0.038, y - 0.08);
+                drawCircle(x + 0.038, y + 0.08);
+                drawCircle(x - 0.038, y - 0.08);
+                break;
+            case FIVE:
+                drawCircle(x, y);
+                drawCircle(x - 0.038, y + 0.08);
+                drawCircle(x + 0.038, y - 0.08);
+                drawCircle(x + 0.038, y + 0.08);
+                drawCircle(x - 0.038, y - 0.08);
+                break;
+            case SIX:
+                drawCircle(x - 0.038, y);
+                drawCircle(x + 0.038, y);
+                drawCircle(x - 0.038, y + 0.08);
+                drawCircle(x + 0.038, y - 0.08);
+                drawCircle(x + 0.038, y + 0.08);
+                drawCircle(x - 0.038, y - 0.08);
                 break;
         }
     }
