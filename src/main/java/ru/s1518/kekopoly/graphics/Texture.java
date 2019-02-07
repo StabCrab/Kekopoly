@@ -1,10 +1,6 @@
 package ru.s1518.kekopoly.graphics;
 
-
-import static org.lwjgl.opengl.GL11.GL_CLAMP;
-import static org.lwjgl.opengl.GL11.GL_LINEAR;
 import static org.lwjgl.opengl.GL11.GL_NEAREST;
-import static org.lwjgl.opengl.GL11.GL_REPEAT;
 import static org.lwjgl.opengl.GL11.GL_RGBA;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_MAG_FILTER;
@@ -25,7 +21,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.nio.ByteBuffer;
 
 import org.lwjgl.BufferUtils;
@@ -38,13 +33,6 @@ public class Texture {
     public final int id;
     public final int width;
     public final int height;
-
-    public static final int LINEAR = GL_LINEAR;
-    public static final int NEAREST = GL_NEAREST;
-
-    public static final int CLAMP = GL_CLAMP;
-    public static final int CLAMP_TO_EDGE = GL_CLAMP_TO_EDGE;
-    public static final int REPEAT = GL_REPEAT;
 
     public Texture() {
         this(GL_NEAREST);
