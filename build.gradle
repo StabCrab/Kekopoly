@@ -13,6 +13,9 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.liquidengine', name: 'legui', version: '1.5.0'
     compile group: 'org.l33tlabs.twl', name: 'pngdecoder', version: '1.0'
+    // https://mvnrepository.com/artifact/com.levigo/gwt-awt
+    compile group: 'com.levigo', name: 'gwt-awt', version: '1.0.1'
+
     //compile group: 'org.lwjgl', name: 'lwjgl', version: '3.2.1'
     //compile group: 'org.lwjgl', name: 'lwjgl-glfw', version: '3.2.1'
     //compile group: 'org.lwjgl', name: 'lwjgl-opengl', version: '3.2.1'

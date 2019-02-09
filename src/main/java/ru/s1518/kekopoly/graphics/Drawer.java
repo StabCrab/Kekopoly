@@ -28,8 +28,9 @@ public class Drawer {
         GL.createCapabilities();
 
         glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
-            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
+            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE ) {
                 glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+            }
         });
 
         board = new Texture();
@@ -84,10 +85,16 @@ public class Drawer {
     private void loop() {
         GL.createCapabilities();
 
+        AWTClickCount app = new AWTClickCount();
+        app.setTitle("KEK");
+
         while ( !glfwWindowShouldClose(window) ) {
             background();
             dices();
 
+            new Quad(-0.105,-0.815).draw();
+            new Quad (-0.20035, -0.815).draw();
+            new Quad (-0.302,-0.815).draw();
 //            new Quad(0.02,-0.815).draw();
 //            new Quad(0.02,-0.865).draw();
 //            new Quad(0.02,-0.915).draw();
